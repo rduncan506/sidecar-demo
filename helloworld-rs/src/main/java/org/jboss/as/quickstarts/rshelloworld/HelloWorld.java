@@ -40,7 +40,9 @@ public class HelloWorld {
     @Produces({ "application/json" })
     public String getHelloWorldJSON(@PathParam("name") String name) {
         System.out.println("name: " + name);
-        return "{\"result\":\"" + helloService.createHelloMessage(name) + "\"}";
+        String result = "{\"result\":\"" + helloService.createHelloMessage(name) + "\"}";
+        System.out.println("result: " + result);
+        return result;
     }
 
     @POST
@@ -48,6 +50,8 @@ public class HelloWorld {
     @Produces({ "application/xml" })
     public String getHelloWorldXML(@PathParam("name") String name) {
         System.out.println("name: " + name);
-        return "<xml><result>" + helloService.createHelloMessage(name) + "</result></xml>";
+        String result = "<xml><result>" + helloService.createHelloMessage(name) + "</result></xml>";
+        System.out.println("result: " + result);
+        return result;
     }
 }
